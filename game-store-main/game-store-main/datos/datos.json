@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "nombre": "figura rei ayanami",
+        "categoria": "figuras",
+        "precio": 2999.00,
+        "descripcion": "figura de rei ayanami de alta calidad",
+        "stock": 10
+    },
+    {
+        "id": 2,
+        "nombre": "xbox one series x 1t",
+        "categoria": "consolas",
+        "precio": 14999.00,
+        "descripcion": "xbox one series x 1t de alta gama",
+        "stock": 7
+    },
+    {
+        "id": 3,
+        "nombre": "playstation 5",
+        "categoria": "consolas",
+        "precio": 19999.00,
+        "descripcion": "playstation 5 asi sin chipear por que nos cierran",
+        "stock": 5
+    },
+    {
+        "id": 2,
+        "nombre": "nintendo switch",
+        "categoria": "consolas",
+        "precio": 14999.00,
+        "descripcion": "nintendo switch no nos alcanzo para la 2",
+        "stock": 7
+    },
+    {
+        "id": 2,
+        "nombre": "soporte de control de halo 3",
+        "categoria": "consolas",
+        "precio": 999.00,
+        "descripcion": "soporte de control del pinshi jeilo verde ta bien chidote",
+        "stock": 7
+    }
+]
