@@ -1,28 +1,93 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/modelos/Categoria.php';
-require_once __DIR__ . '/../src/modelos/Producto.php';
+require_once __DIR__ . '/Categoria.php';
 
-$perifericos = new Categoria('perifericos');
-$audio = new Categoria('audio');
+class Producto{
+    private const CAMPOS_OBLIGATORIOS =[
+        'id','nombre','categoria','precio','descripcion','stock','imagen',
+    ];
 
-echo $perifericos->obtenerNombre().'<br>';
-echo $audio->obtenerNombre().'<br>--------------------------------------------<br>';
+    private int $id;
+    private string $nombre;
+    private Categoria $categoria;
+    private float $precio;
+    private string $descripcion;
+    private int $stock;
+    private string $imagen;
 
-#$intento = new Producto(1, 'mouse', new Categoria('perifericos'), 499.00, 'texto', 10, 'img.jpg');
-#echo $intento->obtenerId().'<br>';
-#echo $intento->obtenerNombre().'<br>';
+    private function __construct(
+        int $id,
+        string $nombre,
+        Categoria $categoria,
+        float $precio,
+        string $descripcion,
+        int $stock,
+        string $imagen
+    ){
+        $this->id = $id;
+        $this->nombre = $nombre;
+        $this->categoria = $categoria;
+        $this->precio = $precio;
+        $this->descripcion = $descripcion;
+        $this->stock = $stock;
+        $this->imagen = $imagen;
+    }
 
-$mouse = Producto::desdeArreglo([
-    'id' => 1,
-    'nombre' => 'mouse inalambrico',
-    'categoria' => 'perifericos',
-    'precio' => 499.00,
-    'descripcion' => 'mouse inalambrico con alta precision',
-    'stock' => 25,
-    'imagen' => 'https://placehold.co/200x150?text=mouse'
-]);
+    private static function exigirCampos(array $registro):void{
+     foreach(self::CAMPOS_OBLIGATORIOS as $campo){
+        if (!array_key_exists($campo,$registro)){
+            throw new InvalidArgumentException("el producto no tiene el campo: $campo");
+        }
+     }
+    }
 
-echo $mouse->obtenerNombre().'('.$mouse->obtenerCategoria()->obtenerNombre().') y cuesta '.$mouse->obtenerPrecioFormateado().'<br>';
-echo $mouse->estaDisponible() ? 'existe producto' : 'agotado';
+    public static function desdeArreglo(array $registro): Producto{
+        self::exigirCampos($registro);
+        return new Producto(
+            (int)$registro['id'],
+            (string)$registro['nombre'],
+            new Categoria($registro['categoria']),
+            (float)$registro['precio'],
+            (string)$registro['descripcion'],
+            (int)$registro['stock'],
+            (string)$registro['imagen']
+        );
+    }
+
+    public function obtenerId(): int{
+        return $this->id;
+    }
+
+    public function obtenerNombre(): string{
+        return $this->nombre;
+    }
+
+    public function obtenerCategoria(): Categoria{
+        return $this->categoria;
+    }
+
+    public function obtenerPrecio(): float{
+        return $this->precio;
+    }
+
+    public function obtenerDescripcion(): string{
+        return $this->descripcion;
+    }
+
+    public function obtenerStock(): int{
+        return $this->stock;
+    }
+
+    public function obtenerImagen(): string{
+        return $this->imagen;
+    }
+
+    public function estaDisponible(): bool{
+        return $this->stock > 0;
+    }
+
+    public function obtenerPrecioFormateado(): string{
+        return'$'.number_format($this->precio,2);
+    }
+}

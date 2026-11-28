@@ -2,41 +2,57 @@
     {
         "id": 1,
         "nombre": "figura rei ayanami",
-        "categoria": "figuras",
+        "categoria": "figura",
         "precio": 2999.00,
         "descripcion": "figura de rei ayanami de alta calidad",
         "stock": 10
     },
     {
         "id": 2,
-        "nombre": "xbox one series x 1t",
-        "categoria": "consolas",
+        "nombre": "xbox one series x",
+        "categoria": "consola",
         "precio": 14999.00,
-        "descripcion": "xbox one series x 1t de alta gama",
+        "descripcion": "xbox one series x 1t la mera gama, la mejor consola de la generacion. xbox gano la generacion ",
         "stock": 7
     },
     {
         "id": 3,
         "nombre": "playstation 5",
-        "categoria": "consolas",
+        "categoria": "consola",
         "precio": 19999.00,
         "descripcion": "playstation 5 asi sin chipear por que nos cierran",
         "stock": 5
     },
     {
-        "id": 2,
+        "id": 4,
         "nombre": "nintendo switch",
-        "categoria": "consolas",
+        "categoria": "consola",
         "precio": 14999.00,
         "descripcion": "nintendo switch no nos alcanzo para la 2",
         "stock": 7
     },
     {
-        "id": 2,
+        "id": 5,
         "nombre": "soporte de control de halo 3",
-        "categoria": "consolas",
+        "categoria": "accesorio",
         "precio": 999.00,
-        "descripcion": "soporte de control del pinshi jeilo verde ta bien chidote",
+        "descripcion": "soporte de control del jeilo verde ta bien chidote",
         "stock": 7
+    },
+    {
+        "id": 6,
+        "nombre": "hollow knight",
+        "categoria": "videojuego",
+        "precio": 299.00,
+        "descripcion": "one of the best fk game I ever played in my entire life, si tienen la prosivilidad de jugarlo jamas la desaprobechen, metanle horas, pierdanse, encuentrense y no solo en el juego tambien a ustedes mismos",
+        "stock": 10
+    },
+    {
+        "id": 7,
+        "nombre": "GTA VI",
+        "categoria": "videojuego",
+        "precio": 1699.00,
+        "descripcion": "pues el getea seis mano que mas",
+        "stock": 0
     }
 ]
