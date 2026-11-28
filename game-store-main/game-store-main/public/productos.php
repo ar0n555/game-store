@@ -1,3 +1,13 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../src/datos/RepositorioProductos.php';
+require_once __DIR__ . '/../src/utilidades/vistas.php';
+
+$repositorio = new RepositorioProductos(__DIR__ . '/../datos/datos.json');
+$productos = $repositorio->obtenerTodos();
+?>
+
 <!doctype html>
 <html lang="es">
     <head>
@@ -22,44 +32,9 @@
             <h2>Catálogo</h2>
             <a href="agregar-producto.php" class="boton-agregar">Agregar Producto +</a>
             <section class="tarjetas-productos">
-                <article>
-                    <img src="https://placehold.co/200x150" alt="detalle de la foto">
-                    <div class="tarjetas-producto-info">
-                    <h3>mouse inalambrico</h3>
-                    <p class="etiqueta-categoria">categoría: periféricos</p>
-                    <p class="tarjetas-producto-precio">Precio: $299.00</p>
-                    <p class="texto-secundario">texto secundario o detalle del producto</p> 
-                    <a class="enlace-detalle" href="producto-detalle.php?id=1">ver detalle</a>
-                    </div>
-                </article>
-                <article>
-                    <img src="https://placehold.co/200x150" alt="detalle de la foto">
-                    <div class="tarjetas-producto-info">
-                    <h3>mouse inalambrico</h3>
-                    <p class="etiqueta-categoria">categoría: periféricos</p>
-                    <p class="tarjetas-producto-precio">Precio: $299.00</p>
-                    <p class="texto-secundario">texto secundario o detalle del producto</p> 
-                    <a class="enlace-detalle" href="producto-detalle.php?id=1">ver detalle</a>
-                    </div>
-                </article><article>
-                    <img src="https://placehold.co/200x150" alt="detalle de la foto">
-                    <div class="tarjetas-producto-info">
-                    <h3>mouse inalambrico</h3>
-                    <p class="etiqueta-categoria">categoría: periféricos</p>
-                    <p class="tarjetas-producto-precio">Precio: $299.00</p>
-                    <p class="texto-secundario">texto secundario o detalle del producto</p> 
-                    <a class="enlace-detalle" href="producto-detalle.php?id=1">ver detalle</a>
-                    </div>
-                </article><article>
-                    <img src="https://placehold.co/200x150" alt="detalle de la foto">
-                    <div class="tarjetas-producto-info">
-                    <h3>mouse inalambrico</h3>
-                    <p class="etiqueta-categoria">categoría: periféricos</p>
-                    <p class="tarjetas-producto-precio">Precio: $299.00</p>
-                    <p class="texto-secundario">texto secundario o detalle del producto</p> 
-                    <a class="enlace-detalle" href="producto-detalle.php?id=1">ver detalle</a>
-                    </div>
-                </article>
+                <?php foreach ($productos as $producto): ?>
+                    <?php mostrarTarjetaProducto($producto); ?>
+                <?php endforeach; ?>
             </section>
         </main>
 

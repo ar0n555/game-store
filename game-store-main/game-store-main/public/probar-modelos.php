@@ -14,6 +14,12 @@ foreach ($repositorio->obtenerTodos() as $producto) {
 echo '</pre>';
 
 
+echo '<pre>';
+echo 'Busco el id 3: ' . $repositorio->buscarPorId(3)->obtenerNombre() . "\n";
 
-ini_set('display_errors', '1');
-error_reporting(E_ALL);
+try {
+    $repositorio->buscarPorId(9999);
+} catch (OutOfBoundsException $error) {
+    echo 'Busco el id 9999: ' . $error->getMessage() . "\n";
+}
+echo '</pre>';
