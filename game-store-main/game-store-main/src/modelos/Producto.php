@@ -5,7 +5,7 @@ require_once __DIR__ . '/Categoria.php';
 
 class Producto{
     private const CAMPOS_OBLIGATORIOS =[
-        'id','nombre','categoria','precio','descripcion','stock','imagen',
+        'id','nombre','categoria','precio','descripcion','stock',
     ];
 
     private int $id;
@@ -14,7 +14,6 @@ class Producto{
     private float $precio;
     private string $descripcion;
     private int $stock;
-    private string $imagen;
 
     private function __construct(
         int $id,
@@ -23,7 +22,6 @@ class Producto{
         float $precio,
         string $descripcion,
         int $stock,
-        string $imagen
     ){
         $this->id = $id;
         $this->nombre = $nombre;
@@ -31,7 +29,6 @@ class Producto{
         $this->precio = $precio;
         $this->descripcion = $descripcion;
         $this->stock = $stock;
-        $this->imagen = $imagen;
     }
 
     private static function exigirCampos(array $registro):void{
@@ -51,7 +48,6 @@ class Producto{
             (float)$registro['precio'],
             (string)$registro['descripcion'],
             (int)$registro['stock'],
-            (string)$registro['imagen']
         );
     }
 
